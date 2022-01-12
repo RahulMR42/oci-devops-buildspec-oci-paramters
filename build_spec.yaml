@@ -26,7 +26,6 @@ steps:
       echo "OCI_TRIGGER_COMMIT_HASH => ${OCI_TRIGGER_COMMIT_HASH}"
       echo "OCI_STAGE_ID =>${OCI_STAGE_ID}" 
       echo "OCI_BUILD_RUN_ID=>${OCI_BUILD_RUN_ID}"
-      echo "OCI_TRIGGER_COMMIT_HASH	=>${OCI_TRIGGER_COMMIT_HASH}"
       echo "OCI_TRIGGER_SOURCE_BRANCH_NAME =>${OCI_TRIGGER_SOURCE_BRANCH_NAME} "
       echo "OCI_TRIGGER_SOURCE_URL =>${OCI_TRIGGER_SOURCE_URL} "
       echo "OCI_TRIGGER_EVENT_TYPE =>${OCI_TRIGGER_EVENT_TYPE} "
@@ -34,7 +33,11 @@ steps:
       echo "OCI_WORKSPACE_DIR	=> ${OCI_WORKSPACE_DIR} "
       echo "OCI_PRIMARY_SOURCE_NAME => ${OCI_PRIMARY_SOURCE_NAME} "
       echo "OCI_BUILD_STAGE_NAME => ${OCI_BUILD_STAGE_NAME}"
-      echo "Last Commit ID -> `cd ${OCI_PRIMARY_SOURCE_DIR}/${OCI_PRIMARY_SOURCE_NAME};git log --format="%H" -n 1|cut -c 1-7`"
+      if [ -z ${OCI_TRIGGER_COMMIT_HASH+x} ]; then 
+          cd ${OCI_PRIMARY_SOURCE_DIR}/${OCI_PRIMARY_SOURCE_NAME}
+          export OCI_TRIGGER_COMMIT_HASH=`git log --format="%H" -n 1|cut -c 1-7`
+      ; fi
+      echo "OCI_TRIGGER_COMMIT_HASH	=>${OCI_TRIGGER_COMMIT_HASH}"
 
   # Last command is used to get the commit hash using GIT ID ,its a hack while there wont be any default commit hash by manual Run.
   # Until its fixed we can fetch the same via GIT Command.

@@ -35,4 +35,4 @@ steps:
       echo "OCI_WORKSPACE_DIR	=> ${OCI_WORKSPACE_DIR} "
       echo "OCI_PRIMARY_SOURCE_NAME => ${OCI_PRIMARY_SOURCE_NAME} "
       echo "OCI_BUILD_STAGE_NAME => ${OCI_BUILD_STAGE_NAME}"
-      echo "Last Commit ID -> `git log --format="%H" -n 1`"
+      echo "Last Commit ID (For manual run if needed,as Commit Hash will be empty) -> `git log --format="%H" -n 1|cut -c 1-N`"

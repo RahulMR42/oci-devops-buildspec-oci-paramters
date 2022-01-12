@@ -10,8 +10,10 @@ Sample output
 
  Build View 
 
+ ![](images/buildview.png)
+
 
  Build logs for mannual execution 
- 
+
 
  Build logs for a OCI Trigger execution 

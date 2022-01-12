@@ -33,10 +33,11 @@ steps:
       echo "OCI_WORKSPACE_DIR	=> ${OCI_WORKSPACE_DIR} "
       echo "OCI_PRIMARY_SOURCE_NAME => ${OCI_PRIMARY_SOURCE_NAME} "
       echo "OCI_BUILD_STAGE_NAME => ${OCI_BUILD_STAGE_NAME}"
-      if [ -z ${OCI_TRIGGER_COMMIT_HASH+x} ]; then 
+      if [ -z ${OCI_TRIGGER_COMMIT_HASH} ] 
+      then 
           cd ${OCI_PRIMARY_SOURCE_DIR}/${OCI_PRIMARY_SOURCE_NAME}
           export OCI_TRIGGER_COMMIT_HASH=`git log --format="%H" -n 1|cut -c 1-7`
-      ; fi
+      fi
       echo "OCI_TRIGGER_COMMIT_HASH	=>${OCI_TRIGGER_COMMIT_HASH}"
 
   # Last command is used to get the commit hash using GIT ID ,its a hack while there wont be any default commit hash by manual Run.

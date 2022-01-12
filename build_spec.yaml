@@ -6,7 +6,7 @@ shell: bash
 env:
   # these are local variables to the build config
   variables:
-    code_repo_name: "oci-java-micronaut-devops-example"
+    code_repo_name: "whatever"
 
   # the value of a vaultVariable is the secret-id (in OCI ID format) stored in the OCI Vault service
   # you can then access the value of that secret in your build_spec.yaml commands
@@ -21,7 +21,7 @@ env:
 steps:
   - type: Command
     name: "Define unique image tag"
-    timeoutInSeconds: 120
+    timeoutInSeconds: 180
     command: |
       echo "OCI_BUILD_RUN_ID => ${OCI_BUILD_RUN_ID}"
       echo "OCI_TRIGGER_COMMIT_HASH => ${OCI_TRIGGER_COMMIT_HASH}"
@@ -35,4 +35,7 @@ steps:
       echo "OCI_WORKSPACE_DIR	=> ${OCI_WORKSPACE_DIR} "
       echo "OCI_PRIMARY_SOURCE_NAME => ${OCI_PRIMARY_SOURCE_NAME} "
       echo "OCI_BUILD_STAGE_NAME => ${OCI_BUILD_STAGE_NAME}"
-      echo 'Last Commit ID -> `git log --format="%H" -n 1|cut -c 1-N`'
+      echo "Last Commit ID -> `cd ${OCI_PRIMARY_SOURCE_DIR}/${OCI_PRIMARY_SOURCE_NAME};git log --format="%H" -n 1|cut -c 1-7`"
+
+  # Last command is used to get the commit hash using GIT ID ,its a hack while there wont be any default commit hash by manual Run.
+  # Until its fixed we can fetch the same via GIT Command.

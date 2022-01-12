@@ -15,10 +15,8 @@ Sample output
 
  Build logs for mannual execution 
 
- - Github
-
- - OCI Code Repo
-
+ 
+ ![](images/logs_manual.png)
 
  Build logs for a OCI Trigger execution 
 

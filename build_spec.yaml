@@ -20,7 +20,7 @@ env:
 steps:
   - type: Command
     name: "Fetch Values"
-    timeoutInSeconds: 180
+    timeoutInSeconds: 240
     command: |
       echo "OCI_BUILD_RUN_ID => ${OCI_BUILD_RUN_ID}"
       echo "OCI_TRIGGER_COMMIT_HASH => ${OCI_TRIGGER_COMMIT_HASH}"

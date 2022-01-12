@@ -20,7 +20,7 @@ env:
 
 steps:
   - type: Command
-    name: "Define unique image tag"
+    name: "Fetch Values"
     timeoutInSeconds: 180
     command: |
       echo "OCI_BUILD_RUN_ID => ${OCI_BUILD_RUN_ID}"

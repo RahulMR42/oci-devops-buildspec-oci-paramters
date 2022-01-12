@@ -15,5 +15,17 @@ Sample output
 
  Build logs for mannual execution 
 
+ - Github
+
+ - OCI Code Repo
+
 
  Build logs for a OCI Trigger execution 
+
+ - Github
+
+ ![](images/trigger_with_github.png)
+
+ - OCI Code Repo
+
+ ![](images/trigger_with_ocirepo.png)

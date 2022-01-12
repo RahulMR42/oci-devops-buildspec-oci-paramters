@@ -35,7 +35,7 @@ steps:
       echo "OCI_BUILD_STAGE_NAME => ${OCI_BUILD_STAGE_NAME}"
       if [ -z ${OCI_TRIGGER_COMMIT_HASH} ] 
       then 
-          cd ${OCI_PRIMARY_SOURCE_DIR}/${OCI_PRIMARY_SOURCE_NAME}
+          cd ${OCI_PRIMARY_SOURCE_DIR}
           export OCI_TRIGGER_COMMIT_HASH=`git log --format="%H" -n 1|cut -c 1-7`
       fi
       echo "OCI_TRIGGER_COMMIT_HASH	=>${OCI_TRIGGER_COMMIT_HASH}"
